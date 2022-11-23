@@ -42,11 +42,11 @@ export default {
 </script>
 
 <template>
-    <div class="main">
+    <div class="main" v-bind:class="darkModeClass">
         <div class="input">
             <textarea class="input-area" v-bind:value="source" @input="update" ></textarea>
         </div>
-        <div class="preview" v-bind:class="darkModeClass">
+        <div class="preview">
             <button @click="toggleMode">Toggle {{btnMode}}</button>
             <div class="preview-area" v-html="output"></div>
 
@@ -80,6 +80,7 @@ body {
 
 .main{
     display: flex;
+    width: 100%;
 }
 .input{
     width: 50%;
@@ -145,4 +146,21 @@ body {
     border-color: #555 transparent transparent transparent;
   }
   
+  /*media--------------------*/
+  @media screen and (max-width: 660px) {
+    .main{
+      display: block;
+    }
+    .input{
+      width: 100%;
+      padding: 10px;
+    }
+    .preview{
+      width: 100%;
+      padding: 10px;
+    }
+    .input-area{
+        height: 60vh;
+    }
+  }
 </style>
