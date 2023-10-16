@@ -9,6 +9,16 @@ export default {
       darkModeClass: ''
     }
   },
+  mounted(){
+    if(localStorage.source){
+      this.source = localStorage.source
+    }
+  },
+  watch:{
+    source(newSource){
+      localStorage.source = newSource
+    }
+  },
   computed: {
     output() {
       return (this.source)
@@ -50,13 +60,13 @@ export default {
             <button @click="toggleMode">Toggle {{btnMode}}</button>
             <div class="preview-area" v-html="output"></div>
 
-            <div id="preview-code" class="preview-code">/roomintro {{source}}</div>
             <div class="tooltip">
                 <button @click="copy">
                 <span class="tooltiptext" id="myTooltip">Coppied to clipboard</span>
                 Copy
                 </button>
             </div>
+            <div id="preview-code" class="preview-code">/roomintro {{source}}</div>
         </div>
     </div>    
 </template>
@@ -96,7 +106,7 @@ body {
 }
 .input-area{
     width: 100%;
-    height: 90vh;
+    height: calc(100vh - 5%);
     resize: none;
 }
 .preview-area{
@@ -113,6 +123,7 @@ body {
     padding: 5px;
     font-size: small;
     font-family: 'Courier New', Courier, monospace;
+    overflow-wrap: break-word;
 }
 .tooltip {
     position: relative;
@@ -160,7 +171,7 @@ body {
       padding: 10px;
     }
     .input-area{
-        height: 60vh;
+        height: 75vh;
     }
   }
 </style>
