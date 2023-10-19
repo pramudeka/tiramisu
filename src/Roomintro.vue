@@ -63,7 +63,7 @@ export default {
             <div class="tooltip">
                 <button @click="copy">
                 <span class="tooltiptext" id="myTooltip">Coppied to clipboard</span>
-                Copy
+                Copy Code
                 </button>
             </div>
             <div id="preview-code" class="preview-code">/roomintro {{source}}</div>
