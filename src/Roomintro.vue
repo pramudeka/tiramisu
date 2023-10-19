@@ -77,7 +77,7 @@ export default {
 *::after {
   box-sizing: border-box;
   margin: 0;
-  position: relative;
+  /* position: relative; */
 }
 body {
   min-height: 100vh;
@@ -106,14 +106,19 @@ body {
 }
 .input-area{
     width: 100%;
-    height: calc(100vh - 5%);
+    /* height: calc(100vh - 5%); */
     resize: none;
+    height: -webkit-fill-available;
 }
 .preview-area{
     border: #555 solid 1px;
     margin-top: 10px;
     margin-bottom: 10px;
-    height: 250px;
+    max-height: 200px;
+    min-height: 2rem;
+    font-family: Verdana,Helvetica,Arial,sans-serif;
+    overflow: auto;
+    display: block;
 }
 .preview-code,
 #preview-code{
